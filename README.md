@@ -20,7 +20,6 @@ config := &sms.Config{
 
 参数  | 说明
 ------------- | -------------
-AppId  | 没有参数
 AppId|应用信息里的SDK AppID
 AppKey|应用信息里的App Key
 Sign|短信签名
