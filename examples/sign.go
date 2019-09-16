@@ -58,7 +58,7 @@ func TestGetSign() {
 	}
 }
 
-// 分页全量拉取q签名状态
+// 分页全量拉取签名状态
 func TestGetPageSign() {
 	c := &config.Config{AppId: "", AppKey: ""}
 	s := sign.NewSign(c)

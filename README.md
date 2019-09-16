@@ -160,4 +160,88 @@ r 是 *http.Request
 
 
 
+### 添加模版
 
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+t := template.NewTemplate(c)
+params := &template.AddParams{Text: "测试添加模版{1}，api测试", Type: template.ORDINARY_SMS}
+result, err := t.Add(params)
+```
+
+### 修改模版
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+t := template.NewTemplate(c)
+params := &template.ModParams{Text: "测试添加模版{1}，api测试", Type: template.ORDINARY_SMS,TplId:123}
+result, err := t.Mod(params)
+```
+
+### 删除模版
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+t := template.NewTemplate(c)
+result, err := t.Del([]int{1,2})
+```
+
+### 指定模板 ID 拉取模版状态
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+t := template.NewTemplate(c)
+result, err := t.Get([]int{1677})
+```
+
+### 分页全量拉取
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+t := template.NewTemplate(c)
+result, err := t.GetPage(1,0)
+```
+
+### 添加签名
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+s := sign.NewSign(c)
+p := &sign.SignParams{Text: "测试"}
+result, err := s.Add(p)
+```
+
+### 修改签名
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+s := sign.NewSign(c)
+p := &sign.SignParams{Text: "测试", SignId: 1234}
+result, err := s.Mod(p)
+```
+
+### 删除签名
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+s := sign.NewSign(c)
+signId := []int64{235741,111}
+result, err := s.Del(signId)
+```
+
+### 指定签名ID拉取签名状态
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+s := sign.NewSign(c)
+signId := []int64{235741,111}
+result, err := s.Get(signId)
+```
+
+### 分页全量拉取签名状态
+
+```go
+c := &config.Config{AppId: "", AppKey: ""}
+s := sign.NewSign(c)
+result, err := s.GetPage(10, 0)
+```
