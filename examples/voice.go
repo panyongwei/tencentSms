@@ -2,13 +2,14 @@ package examples
 
 import (
 	"fmt"
+	"github.com/sunnyos/tencentSms/config"
 	"github.com/sunnyos/tencentSms/voice"
 	"net/http"
 )
 
 // 发送语音验证码
 func TestSendVoice() {
-	c := &voice.Config{AppId: "", AppKey: "", Sign: ""}
+	c := &config.Config{AppId: "", AppKey: ""}
 	v := voice.NewVoice(c)
 
 	// demo1
@@ -32,7 +33,7 @@ func TestSendVoice() {
 
 // 指定模板发送语音通知
 func TestSendtVoice() {
-	c := &voice.Config{AppId: "", AppKey: "", Sign: ""}
+	c := &config.Config{AppId: "", AppKey: ""}
 	v := voice.NewVoice(c)
 
 	// demo1

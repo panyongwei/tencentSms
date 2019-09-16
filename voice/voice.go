@@ -1,15 +1,12 @@
 package voice
 
-import "github.com/sunnyos/tencentSms/context"
+import (
+	"github.com/sunnyos/tencentSms/config"
+	"github.com/sunnyos/tencentSms/context"
+)
 
 type TencentVoice struct {
 	Context *context.Context
-}
-
-type Config struct {
-	AppId  string
-	AppKey string
-	Sign   string
 }
 
 type VoiceTel struct {
@@ -24,13 +21,13 @@ type VoiceResult struct {
 	Ext    string `json:"ext"`
 }
 
-func NewVoice(cfg *Config) *TencentVoice {
+func NewVoice(cfg *config.Config) *TencentVoice {
 	context := new(context.Context)
 	copyConfigToContext(cfg, context)
 	return &TencentVoice{context}
 }
 
-func copyConfigToContext(cfg *Config, context *context.Context) {
+func copyConfigToContext(cfg *config.Config, context *context.Context) {
 	context.AppId = cfg.AppId
 	context.AppKey = cfg.AppKey
 	context.Sign = cfg.Sign

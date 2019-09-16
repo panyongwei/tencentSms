@@ -1,6 +1,7 @@
 package sms
 
 import (
+	"github.com/sunnyos/tencentSms/config"
 	"github.com/sunnyos/tencentSms/context"
 )
 
@@ -8,24 +9,18 @@ type TencentSms struct {
 	Context *context.Context
 }
 
-type Config struct {
-	AppId  string
-	AppKey string
-	Sign   string
-}
-
 type SmsTel struct {
 	Mobile     string `json:"mobile"`
 	Nationcode string `json:"nationcode"`
 }
 
-func NewSms(cfg *Config) *TencentSms {
+func NewSms(cfg *config.Config) *TencentSms {
 	context := new(context.Context)
 	copyConfigToContext(cfg, context)
 	return &TencentSms{context}
 }
 
-func copyConfigToContext(cfg *Config, context *context.Context) {
+func copyConfigToContext(cfg *config.Config, context *context.Context) {
 	context.AppId = cfg.AppId
 	context.AppKey = cfg.AppKey
 	context.Sign = cfg.Sign

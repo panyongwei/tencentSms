@@ -1,5 +1,7 @@
 package main
 
+import "github.com/sunnyos/tencentSms/examples"
+
 func main() {
 	// 短信API
 	//examples.TestSingleSendSms()
@@ -12,4 +14,18 @@ func main() {
 	//examples.TestSendVoice()
 	//examples.TestSendtVoice()
 	//examples.StartVoiceHttp()
+
+	// 模版API
+	//examples.TestAddTemplate()
+	//examples.TestModTemplate()
+	//examples.TestDelTemplate()
+	//examples.TestGetIdTemplateStatus()
+	//examples.TestGetPageTemplateStatus()
+
+	// 签名API
+	//examples.TestAddSign()
+	//examples.TestModSign()
+	//examples.TestDelSign()
+	examples.TestGetSign()
+	examples.TestGetPageSign()
 }

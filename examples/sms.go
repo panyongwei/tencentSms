@@ -2,6 +2,7 @@ package examples
 
 import (
 	"fmt"
+	"github.com/sunnyos/tencentSms/config"
 	"github.com/sunnyos/tencentSms/sms"
 	"net/http"
 	"time"
@@ -9,7 +10,7 @@ import (
 
 // 指定模板单发短信
 func TestSingleSendSms() {
-	c := &sms.Config{AppId: "", AppKey: "", Sign: "Sunny"}
+	c := &config.Config{AppId: "", AppKey: "", Sign: ""}
 	s := sms.NewSms(c)
 
 	// demo1
@@ -33,7 +34,7 @@ func TestSingleSendSms() {
 
 // 指定模板群发短信
 func TestMultiSms() {
-	c := &sms.Config{AppId: "", AppKey: "", Sign: "Sunny"}
+	c := &config.Config{AppId: "", AppKey: "", Sign: ""}
 	s := sms.NewSms(c)
 
 	// demo1
@@ -57,7 +58,7 @@ func TestMultiSms() {
 
 // 拉取单个手机短信状态
 func PullStatus() {
-	c := &sms.Config{AppId: "", AppKey: "", Sign: "Sunny"}
+	c := &config.Config{AppId: "", AppKey: ""}
 	s := sms.NewSms(c)
 	p := &sms.PullStatusParams{
 		BeginTime:  time.Now().Unix() - (3600 * 24),
@@ -77,7 +78,7 @@ func PullStatus() {
 
 // 拉取短信状态
 func PullMultiStatus() {
-	c := &sms.Config{AppId: "", AppKey: "", Sign: "Sunny"}
+	c := &config.Config{AppId: "", AppKey: ""}
 	s := sms.NewSms(c)
 	p := &sms.PullMultiStatusParams{
 		Max:  100,
